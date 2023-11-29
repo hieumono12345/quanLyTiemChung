@@ -1,0 +1,32 @@
+---học 10 từ mới -13h50-14h15
+giải lao 5p - ngắt tiến trình định hướng lại
+---hash mật khẩu 14h20-14h40 giải lao, kiểm tra tiến độ  điều chỉnh 14h45-3h
++ ở đăng nhập
++ ở thêm tài khoản 
++ ở sửa tài khoản
+
+--------------------------------------
+- Thiết kế tạo, xuất phiếu tiêm 
+- Chức năng quản lý danh sách phiếu tiêm
+-Chức năng tra cứu thông tin vắc xin
+-----------------------------------
+- sp_IsVCInStock để xem có tồn tại hoặc còn hàng không lúc thêm chi tiết tiêm
+- SELECT SOLUONGCOSAN FROM VACCINE WHERE MAVACCINE = @MAVACCINE 
+-
+-sp_InsertKH 
+-sp_InsertPhieuTiem
+--------------------------------------
+sp_SearchAllVaccine -- tim tat ca
+-------------------------------------
+--phuc vu report
+sp_GetPhieuTiemReportInfo
+sp_GetVCFromPhieuTiem 
+-----------------------------------
+SELECT TOP(5) MAVACCINE, TENVACCINE, SOLUONGCOSAN FROM VACCINE
+ORDER BY SOLUONGCOSAN ASC
+--------------------------------
+SELECT MAVACCINE, TENVACCINE, DATEDIFF(DAY, GETDATE(), HANSD) AS 'SONGAYCONLAI' FROM VACCINE
+WHERE DATEDIFF(DAY, GETDATE(), HANSD)<50
+-----------------------------
+SELECT MAPHIEUTIEM, DATEDIFF(DAY, GETDATE(), NGAYTIEMNHACLAI) AS 'NGAYTIEMNHACLAI' FROM CHITIETTIME
+WHERE DATEDIFF(DAY, GETDATE(), NGAYTIEMNHACLAI)<20
